@@ -131,9 +131,7 @@ public class VariablesTheme {
         
         System.out.println("\nСпособ перестановки с помощью третьей переменной:");
 
-        int tmp;
-        
-        tmp = num2;
+        int tmp = num2;
         num2 = num1;
         num1 = tmp;
 
@@ -152,7 +150,7 @@ public class VariablesTheme {
         System.out.println("\nСпособ перестановки с помощью побитовой операции ^:");
 
         num1 ^= num2;
-        num2 = num1 ^ num2;
+        num2 ^= num1;
         num1 ^= num2;
 
         System.out.println("Первая переменная - " + num1);
@@ -182,11 +180,11 @@ public class VariablesTheme {
 
         System.out.println("    " + slash + backslash);
         System.out.println("   " + slash + "  " + backslash);
-        System.out.println("  " + slash + underscore + leftParenthesis + " " + rightParenthesis +
-                backslash);
+        System.out.println("  " + slash + underscore + leftParenthesis + " " + 
+                rightParenthesis + backslash);
         System.out.println(" " + slash + "      " + backslash);
-        System.out.println("" + slash + underscore + underscore + underscore + underscore + slash +
-                backslash + underscore + underscore + backslash);
+        System.out.println("" + slash + underscore + underscore + underscore + 
+                underscore + slash + backslash + underscore + underscore + backslash);
 
         System.out.println("\n8. Манипуляции с сотнями, десятками и единицами числа\n");
 
