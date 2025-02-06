@@ -11,8 +11,8 @@ public class VariableNamesTheme {
         System.out.println("Сумма чисел = " + numberSum);
 
         // Произведение цифр
-        int productDigits = 4;
-        System.out.println("Произведение цифр = " + productDigits);
+        int + digitProduct = 4;
+        System.out.println("Произведение цифр = " + digitProduct);
 
         // Максимальное число
         int maxNumber = 99;
@@ -87,11 +87,11 @@ public class VariableNamesTheme {
         System.out.println("Окончание диапазона = " + rangeEnd);
 
         // Имя работника месяца
-        String nameEmployeeOfTheMonth = "Василий";
-        System.out.println("Имя работника месяц: " + nameEmployeeOfTheMonth);
+        String employeeMonthName = "Василий";
+        System.out.println("Имя работника месяц: " + employeeMonthName);
 
         // Название электронной книги
-        String nameEBook = "Властелин колец";
+        String ebookTitle = "Властелин колец";
         System.out.println("Название электронной книги: " + nameEBook);
 
         // Размер
@@ -117,8 +117,8 @@ public class VariableNamesTheme {
         System.out.println("\n2. Boolean-переменные\n");
 
         // Сотни равны?
-        boolean isHundredsEquality = true;
-        System.out.println("Сотни равны? " + isHundredsEquality);
+        boolean isEqualHundreds = true;
+        System.out.println("Сотни равны? " + isEqualHundreds);
 
         // Компьютер включен?
         boolean isComputerOn = true;
@@ -145,8 +145,9 @@ public class VariableNamesTheme {
         System.out.println("Новое? " + isNew);
 
         // Электронная почта действительная?
-        boolean isEmailValid = true;
-        System.out.println("Электронная почта действительная? " + isEmailValid);
+        boolean isValidEmail
+         = true;
+        System.out.println("Электронная почта действительная? " + isValidEmail);
 
         // Имеются уникальные строки?
         boolean hasUniqueStrings = false;
