@@ -11,7 +11,7 @@ public class VariableNamesTheme {
         System.out.println("Сумма чисел = " + numberSum);
 
         // Произведение цифр
-        int + digitProduct = 4;
+        int digitProduct = 4;
         System.out.println("Произведение цифр = " + digitProduct);
 
         // Максимальное число
@@ -145,8 +145,7 @@ public class VariableNamesTheme {
         System.out.println("Новое? " + isNew);
 
         // Электронная почта действительная?
-        boolean isValidEmail
-         = true;
+        boolean isValidEmail = true;
         System.out.println("Электронная почта действительная? " + isValidEmail);
 
         // Имеются уникальные строки?
