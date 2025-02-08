@@ -123,49 +123,44 @@ public class IfElseStatementTheme {
 
         System.out.println("\n6. Подсчет начисленных банком %\n");
 
-        double deposit = 321123.59;
-        double percent;
+        double deposit = 9999;
+        double percent = 0.05;
 
         System.out.println("Сумма вклада - " + deposit + " руб.");
 
-        if (deposit < 100000) {
-            percent = 0.05;
-        } else if (deposit >= 100000 && deposit <= 300000) {
+        if (deposit >= 100000 && deposit <= 300000) {
             percent = 0.07;
-        } else {
+        } else if (deposit > 300000) {
             percent = 0.1;
         }
 
-        percent *= deposit;
-        deposit += percent;
+        double accruedInterest = percent * deposit;
+        double finalSum = deposit + accruedInterest;
 
-        System.out.println("Сумма начисленного % - " + percent + " руб.");
-        System.out.println("Итоговая сумма с % - " + deposit + " руб.");
+        System.out.println("Сумма начисленного % - " + accruedInterest + " руб.");
+        System.out.println("Итоговая сумма с % - " + finalSum + " руб.");
 
         System.out.println("\n7. Определение оценки по предметам\n");
 
         double historyPercent = 0.59;
-        double programmingPercent = 0.92;
-        int historyGrade;
-        int programmingGrade;
+        int historyGrade = 2;
 
-        if (historyPercent <= 0.60) {
-            historyGrade = 2;
-        } else if (historyPercent > 0.60 && historyPercent <= 0.73) {
+        if (historyPercent > 0.60 && historyPercent <= 0.73) {
             historyGrade = 3;
         } else if (historyPercent > 0.73 && historyPercent <= 0.91) {
             historyGrade = 4;
-        } else {
+        } else if (historyPercent > 0.91) {
             historyGrade = 5;
         }
 
-        if (programmingPercent <= 0.60) {
-            programmingGrade = 2;
-        } else if (programmingPercent > 0.60 && programmingPercent <= 0.73) {
+        double programmingPercent = 0.92;
+        int programmingGrade = 2;
+
+        if (programmingPercent > 0.60 && programmingPercent <= 0.73) {
             programmingGrade = 3;
         } else if (programmingPercent > 0.73 && programmingPercent <= 0.91) {
             programmingGrade = 4;
-        } else {
+        } else if (programmingPercent > 0.91) {
             programmingGrade = 5;
         }
 
@@ -187,30 +182,28 @@ public class IfElseStatementTheme {
 
         if (annualRevenue > 0) {
             System.out.println("Прибыль за год: +" + annualRevenue + " руб.");
-        } else if (annualRevenue <= 0) {
+        } else {
             System.out.println("Прибыль за год: " + annualRevenue + " руб.");
         }
 
         System.out.println("\n9. Расчет годовой прибыли с помощью BigDecimal\n");
 
         BigDecimal depositBd = new BigDecimal("321123.59");
-        BigDecimal percentBd = new BigDecimal("0.0");
+        BigDecimal percentBd = new BigDecimal("0.05");
 
         System.out.println("Сумма вклада - " + depositBd + " руб.");
 
-        if (depositBd.compareTo(new BigDecimal(100000)) < 0) {
-            percentBd = new BigDecimal("0.05");
-        } else if (depositBd.compareTo(new BigDecimal(100000)) >= 0 && depositBd
-                .compareTo(new BigDecimal(300000)) <= 0) {
+        if (depositBd.compareTo(BigDecimal.valueOf(100000)) >= 0 && depositBd
+                .compareTo(BigDecimal.valueOf(300000)) <= 0) {
             percentBd = new BigDecimal("0.07");
         } else {
             percentBd = new BigDecimal("0.1");
         }
 
-        percentBd = depositBd.multiply(percentBd).setScale(2, RoundingMode.HALF_UP);
-        depositBd = depositBd.add(percentBd).setScale(2, RoundingMode.HALF_UP);
-        System.out.println("Сумма начисленного % - " + percentBd + " руб.");
-        System.out.println("Итоговая сумма с % - " + depositBd + " руб.");
+        BigDecimal accruedInterestBd = depositBd.multiply(percentBd).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal finalSumBd = depositBd.add(percentBd).setScale(2, RoundingMode.HALF_UP);
+        System.out.println("Сумма начисленного % - " + accruedInterestBd + " руб.");
+        System.out.println("Итоговая сумма с % - " + finalSumBd + " руб.");
 
         System.out.println("\n10. Подсчет начисленных банком % с помощью BigDecimal\n");
 
@@ -219,11 +212,11 @@ public class IfElseStatementTheme {
         BigDecimal costPriceBd = new BigDecimal("9001.729");
 
         BigDecimal annualRevenueBd = saleBd.subtract(costPriceBd.add(rentBd))
-                .multiply(new BigDecimal("12")).setScale(2, RoundingMode.HALF_UP);
+                .multiply(BigDecimal.valueOf(12)).setScale(2, RoundingMode.HALF_UP);
 
-        if (annualRevenueBd.compareTo(new BigDecimal(0)) > 0) {
+        if (annualRevenueBd.compareTo(BigDecimal.ZERO) > 0) {
             System.out.println("Прибыль за год: +" + annualRevenueBd + " руб.");
-        } else if (annualRevenueBd.compareTo(new BigDecimal(0)) <= 0) {
+        } else {
             System.out.println("Прибыль за год: " + annualRevenueBd + " руб.");
         }
     }
