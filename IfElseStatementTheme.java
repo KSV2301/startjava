@@ -193,8 +193,8 @@ public class IfElseStatementTheme {
 
         System.out.println("Сумма вклада - " + depositBd + " руб.");
 
-        if (depositBd.compareTo(BigDecimal.valueOf(100000)) >= 0 && depositBd
-                .compareTo(BigDecimal.valueOf(300000)) <= 0) {
+        if (depositBd.compareTo(BigDecimal.valueOf(100000)) >= 0 && 
+                depositBd.compareTo(BigDecimal.valueOf(300000)) <= 0) {
             percentBd = new BigDecimal("0.07");
         } else {
             percentBd = new BigDecimal("0.1");
