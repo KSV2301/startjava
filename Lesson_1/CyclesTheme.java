@@ -5,7 +5,7 @@ public class CyclesTheme {
         int start = -10;
         int end = 21;
         int evenSum = 0;
-        int OddSum = 0;
+        int oddSum = 0;
         int currentNumber = start;
 
         do {
@@ -18,7 +18,7 @@ public class CyclesTheme {
         } while (currentNumber <= end);
 
         System.out.println("В отрезке [" + start + "," + end + "] сумма четных чисел = " + 
-                sumEven + ", а нечетных = " + sumOdd);
+                evenSum + ", а нечетных = " + oddSum);
 
         System.out.println("\n2. Вывод чисел между min и max в порядке убывания\n");
 
@@ -44,14 +44,14 @@ public class CyclesTheme {
         
         System.out.print("Числа в интервале (" + max + "," + min + ") в порядке убывания: ");
 
-        for (i = max - 1; i > min; i--) {
+        for (int i = max - 1; i > min; i--) {
             System.out.print(i + " ");
         }
 
         System.out.println("\n\n3. Вывод реверсивного числа и суммы его цифр\n");
 
         int number = 1234;
-        int sumDigits = 0;
+        int digitSum = 0;
         int reversed = 0;
         int tmpNumber = number;
 
@@ -74,7 +74,7 @@ public class CyclesTheme {
 
         count = 0;
 
-        for (i = 1; i < 24; i += 2) {
+        for (int i = 1; i < 24; i += 2) {
             System.out.printf("%2d ", i);
             count++;
             if (count % 5 == 0) {
@@ -112,7 +112,7 @@ public class CyclesTheme {
         System.out.println("\n6. Вывод геометрических фигур\n");
 
         System.out.println("Прямоугольник: ");
-        for (i = 0; i < 5; i++) {
+        for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 10; j++) {
                 System.out.print("*");
             }
@@ -147,16 +147,15 @@ public class CyclesTheme {
             row += step;
         } while (row > 0);
 
-
         System.out.println("\n7. Вывод ASCII-символов\n");
 
         System.out.println("DECIMAL   CHARACTER   DESCRIPTION");
 
-        for (i = 33; i <= 48; i += 2) {
+        for (int i = 33; i <= 48; i += 2) {
             System.out.printf("%4d %10c            %-25s%n", i, (char) i, getName(i));
         }
 
-        for (i = 98; i <= 122; i += 2) {
+        for (int i = 98; i <= 122; i += 2) {
             System.out.printf("%4d %10c            %-25s%n", i, (char) i, getName(i));
         }
 
@@ -189,7 +188,7 @@ public class CyclesTheme {
         int tmpFirstHalf = firstHalf;
         int tmpSecondHalf = secondHalf;
 
-        while (tmpFirstHalf > 0 || tmpSecondHalf > 0 ) {
+        while (tmpFirstHalf > 0 || tmpSecondHalf > 0) {
             if (tmpFirstHalf > 0) {
                 firstSum += tmpFirstHalf % 10;
                 tmpFirstHalf /= 10;
@@ -215,13 +214,13 @@ public class CyclesTheme {
         System.out.println("Таблица Пифагора");
 
         System.out.print("   |");
-        for (i = 2; i <= 9; i++) {
+        for (int i = 2; i <= 9; i++) {
             System.out.printf("%4d", i);
         }
 
         System.out.println("\n---+---------------------------------");
 
-        for (i = 2; i <= 9; i++) {
+        for (int i = 2; i <= 9; i++) {
             System.out.printf("%2d |", i);
             for (int j = 2; j <= 9; j++) {
                 System.out.printf("%4d", i * j);
