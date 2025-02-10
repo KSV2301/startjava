@@ -17,8 +17,8 @@ public class CyclesTheme {
             currentNumber++;
         } while (currentNumber <= end);
 
-        System.out.println("В отрезке [" + start + "," + end + "] сумма четных чисел = " + 
-                evenSum + ", а нечетных = " + oddSum);
+        System.out.println("В отрезке [" + start + "," + end + "] сумма четных чисел = " + evenSum + 
+                ", а нечетных = " + oddSum);
 
         System.out.println("\n2. Вывод чисел между min и max в порядке убывания\n");
 
@@ -52,7 +52,6 @@ public class CyclesTheme {
 
         int number = 1234;
         int digitSum = 0;
-        int reversed = 0;
         int tmpNumber = number;
 
         System.out.println("Число " + number + " поразрядно в обратном порядке: ");
@@ -61,10 +60,9 @@ public class CyclesTheme {
 
         while (tmpNumber > 0) {
             int digit = tmpNumber % 10;
-            digitSum += digit;
-            reversed = reversed * 10 + digit;
-            System.out.println(count + " разряд: " + reversed);
+            System.out.println(count + " разряд: " + digit);
             count++;
+            digitSum += digit;
             tmpNumber /= 10;
         }
 
@@ -188,16 +186,11 @@ public class CyclesTheme {
         int tmpFirstHalf = firstHalf;
         int tmpSecondHalf = secondHalf;
 
-        while (tmpFirstHalf > 0 || tmpSecondHalf > 0) {
-            if (tmpFirstHalf > 0) {
-                firstSum += tmpFirstHalf % 10;
-                tmpFirstHalf /= 10;
-            }
-
-            if (tmpSecondHalf > 0) {
-                secondSum += tmpSecondHalf % 10;
-                tmpSecondHalf /= 10;
-            }
+        while (tmpSecondHalf > 0) {
+            firstSum += tmpFirstHalf % 10;
+            tmpFirstHalf /= 10;
+            secondSum += tmpSecondHalf % 10;
+            tmpSecondHalf /= 10;
         }
 
         if (firstSum == secondSum) {
@@ -229,7 +222,7 @@ public class CyclesTheme {
         } 
     }
 
-    public static String getName(int codePoint) {
+    private static String getName(int codePoint) {
         return Character.getName(codePoint);
     }
 }
