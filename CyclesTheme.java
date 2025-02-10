@@ -4,18 +4,18 @@ public class CyclesTheme {
 
         int start = -10;
         int end = 21;
-        int sumEven = 0;
-        int sumOdd = 0;
-        int i = start;
+        int evenSum = 0;
+        int OddSum = 0;
+        int currentNumber = start;
 
         do {
-            if (i % 2 == 0) {
-                sumEven += i;
+            if (currentNumber % 2 == 0) {
+                evenSum += currentNumber;
             } else {
-                sumOdd += i;
+                oddSum += currentNumber;
             }
-            i++;
-        } while (i <= end);
+            currentNumber++;
+        } while (currentNumber <= end);
 
         System.out.println("В отрезке [" + start + "," + end + "] сумма четных чисел = " + 
                 sumEven + ", а нечетных = " + sumOdd);
@@ -26,24 +26,22 @@ public class CyclesTheme {
         int num2 = 5;
         int num3 = -1;
 
-        int min;
-        if (num1 < num2 && num1 < num3) {
-            min = num1;
-        } else if (num2 < num3) {
+        int min = num1;
+        int max = num1;
+
+        if (num2 > max) {
+            max = num2;
+        } 
+        if (num2 < min) {
             min = num2;
-        } else {
+        } 
+        if (num3 > max) {
+            max = num3;
+        } 
+        if (num3 < min) {
             min = num3;
         }
-
-        int max;
-        if (num1 > num2 && num1 > num3) {
-            max = num1;
-        } else if (num2 > num3) {
-            max = num2;
-        } else {
-            max = num3;
-        }
-
+        
         System.out.print("Числа в интервале (" + max + "," + min + ") в порядке убывания: ");
 
         for (i = max - 1; i > min; i--) {
@@ -57,19 +55,24 @@ public class CyclesTheme {
         int reversed = 0;
         int tmpNumber = number;
 
+        System.out.println("Число " + number + " поразрядно в обратном порядке: ");
+
+        int count = 1;
+
         while (tmpNumber > 0) {
             int digit = tmpNumber % 10;
-            sumDigits += digit;
+            digitSum += digit;
             reversed = reversed * 10 + digit;
+            System.out.println(count + " разряд: " + reversed);
+            count++;
             tmpNumber /= 10;
         }
 
-        System.out.println("Число " + number + " в обратном порядке: " + reversed);
-        System.out.println("Сумма цифр: " + sumDigits);
+        System.out.println("Сумма цифр: " + digitSum);
 
         System.out.println("\n4. Вывод чисел в несколько строк\n");
 
-        int count = 0;
+        count = 0;
 
         for (i = 1; i < 24; i += 2) {
             System.out.printf("%2d ", i);
@@ -94,8 +97,7 @@ public class CyclesTheme {
         tmpNumber = number;
 
         while (tmpNumber > 0) {
-            int digit = tmpNumber % 10;
-            if (digit == 2) {
+            if (tmpNumber % 10 == 2) {
                 count++;
             }
             tmpNumber /= 10;
@@ -130,38 +132,32 @@ public class CyclesTheme {
         }
 
         System.out.println("Равнобедренный треугольник: ");
-        i = 1;
+        row = 1;
+        int step = 1;
         do {
-            int j = 0;
+            int col = 0;
             do {
                 System.out.print("$");
-                j++;
-            } while (j < i);
+                col++;
+            } while (col < row);
             System.out.println();
-            i++;
-        } while (i <= 3);
+            if (row == 3) {
+                step = -1;
+            }
+            row += step;
+        } while (row > 0);
 
-        i = 2;
-        do {
-            int j = 0;
-            do {
-                System.out.print("$");
-                j++;
-            } while (j < i);
-            System.out.println();
-            i--;
-        } while (i > 0);
 
         System.out.println("\n7. Вывод ASCII-символов\n");
 
         System.out.println("DECIMAL   CHARACTER   DESCRIPTION");
 
         for (i = 33; i <= 48; i += 2) {
-            System.out.printf("%4d %10c       %-25s%n", i, (char) i, getName(i));
+            System.out.printf("%4d %10c            %-25s%n", i, (char) i, getName(i));
         }
 
-        for (char c = 'b'; c <= 'z'; c += 2) {
-            System.out.printf("%4d %10c       %-25s%n", (int) c, c, getName(c));
+        for (i = 98; i <= 122; i += 2) {
+            System.out.printf("%4d %10c            %-25s%n", i, (char) i, getName(i));
         }
 
         System.out.println("\n8. Проверка, является ли число палиндромом\n");
@@ -187,33 +183,32 @@ public class CyclesTheme {
         number = 123321;
 
         int firstHalf = number / 1000;
-        int sumFirst = 0;
-        int tmpFirstHalf = firstHalf;
-        
-        while (tmpFirstHalf > 0) {
-            int digit = tmpFirstHalf % 10;
-            sumFirst += digit;
-            tmpFirstHalf /= 10;
-        }
-
         int secondHalf = number % 1000;
-        int sumSecond = 0;
+        int firstSum = 0;
+        int secondSum = 0;
+        int tmpFirstHalf = firstHalf;
         int tmpSecondHalf = secondHalf;
-        
-        while (tmpSecondHalf > 0) {
-            int digit = tmpSecondHalf % 10;
-            sumSecond += digit;
-            tmpSecondHalf /= 10;
+
+        while (tmpFirstHalf > 0 || tmpSecondHalf > 0 ) {
+            if (tmpFirstHalf > 0) {
+                firstSum += tmpFirstHalf % 10;
+                tmpFirstHalf /= 10;
+            }
+
+            if (tmpSecondHalf > 0) {
+                secondSum += tmpSecondHalf % 10;
+                tmpSecondHalf /= 10;
+            }
         }
 
-        if (sumFirst == sumSecond) {
+        if (firstSum == secondSum) {
             System.out.println("Число " + number + " - счастливое");
         } else {
             System.out.println("Число " + number + " - не счастливое");
         }
 
-        System.out.println("Сумма цифр " + firstHalf + " = " + sumFirst);
-        System.out.println("Сумма " + secondHalf + " = " + sumSecond);
+        System.out.println("Сумма цифр " + firstHalf + " = " + firstSum);
+        System.out.println("Сумма " + secondHalf + " = " + secondSum);
 
         System.out.println("\n10. Вывод таблицы умножения Пифагора\n");
 
