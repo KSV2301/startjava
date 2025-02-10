@@ -46,7 +46,7 @@ public class VariablesTheme {
         System.out.println("\n4. Вывод min и max значений целых числовых типов\n");
         
         // byte
-        byte extremesByteValue = - 128;
+        byte extremesByteValue = -128;
         System.out.println("Минимальное значение byte - " + extremesByteValue);
         extremesByteValue++;
         System.out.println("byte после инкремента - " + extremesByteValue);
@@ -61,7 +61,7 @@ public class VariablesTheme {
         System.out.println("byte после декремента - " + extremesByteValue);
         
         // short
-        short extremesShortValue = - 32_768;
+        short extremesShortValue = -32_768;
         System.out.println("\nМинимальное значение short - " + extremesShortValue);
         extremesShortValue++;
         System.out.println("short после инкремента - " + extremesShortValue);
@@ -198,7 +198,7 @@ public class VariablesTheme {
 
         System.out.println("Число " + number + " содержит:");
         System.out.println("    сотен - " + hundreds);
-        System.out.println("    десятков - " +tens);
+        System.out.println("    десятков - " + tens);
         System.out.println("    единиц - " + ones);
         System.out.println("Сумма разрядов = " + digitSum);
         System.out.println("Произведение разрядов = " + digitProduct);
