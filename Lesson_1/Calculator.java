@@ -1,9 +1,8 @@
-public class Calculator {
-    public static void main(String [] args) {
+public class GuessNumber {
+    public static void main(String[] args) {
         int num1 = 2;
         int num2 = 10;
         char operation = '^';
-
         int result = 0;
 
         if (operation == '+') {

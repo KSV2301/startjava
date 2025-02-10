@@ -3,8 +3,8 @@ import java.util.Random;
 // Игра Камень-Ножницы-Бумага
 public class RpsGameFormatting {
     public static void main(String[] args) throws InterruptedException {
-        String rock ="R";
-        String scissors= "S";
+        String rock = "R";
+        String scissors = "S";
         String paper = "P";
 
         // Ход первого игрока
@@ -22,7 +22,7 @@ public class RpsGameFormatting {
         System.out.println("Ход " + name1 + ": ");
 
         for (int i = 0; i < 5; i++) {
-            System.out.print(rock + "\r") ;
+            System.out.print(rock + "\r");
             Thread.sleep(100);
             System.out.print(scissors + "\r");
             Thread.sleep(100);

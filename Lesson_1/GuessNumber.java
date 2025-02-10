@@ -12,6 +12,8 @@ public class GuessNumber {
                 guess--;
             }
         }
+        
         System.out.println("Вы победили!");
     }
 }
+
