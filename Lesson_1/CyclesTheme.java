@@ -160,7 +160,7 @@ public class CyclesTheme {
         System.out.println("\n8. Проверка, является ли число палиндромом\n");
 
         number = 1234321;
-        reversed = 0;
+        int reversed = 0;
         tmpNumber = number;
 
         while (tmpNumber > 0) {
