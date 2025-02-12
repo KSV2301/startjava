@@ -60,13 +60,13 @@ public class CyclesTheme {
 
         while (tmpNumber > 0) {
             int digit = tmpNumber % 10;
-            System.out.println(count + " разряд: " + digit);
+            System.out.print(digit);
             count++;
             digitSum += digit;
             tmpNumber /= 10;
         }
 
-        System.out.println("Сумма цифр: " + digitSum);
+        System.out.println("\nСумма цифр: " + digitSum);
 
         System.out.println("\n4. Вывод чисел в несколько строк\n");
 
