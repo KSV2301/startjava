@@ -5,13 +5,13 @@ public class WolfTest {
         wolf.name = "Акула";
         wolf.weight = 42.7f;
         wolf.age = 7;
-        wolf.colorCoat = "коричнево-белый";
+        wolf.color = "коричнево-белый";
 
         System.out.println("Характеристики волка:");
 
         System.out.println("Кличка - " + wolf.name + "\nПол - " + wolf.gender + 
                 "\nВес - " + wolf.weight + " кг" + "\nВозраст - " + wolf.age + " лет" +
-                "\nОкрас - " + wolf.colorCoat);
+                "\nОкрас - " + wolf.color);
 
         System.out.println("\nДействия волка:");
 
