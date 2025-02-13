@@ -3,7 +3,7 @@ public class Wolf {
     String name;
     float weight;
     int age;
-    String colorCoat;
+    String color;
 
     void walk() {
         System.out.println(name + " идет");
