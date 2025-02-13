@@ -9,7 +9,7 @@ public class Person {
         System.out.println(name + " идет");
     }
 
-    void recline() {
+    void sit() {
         System.out.println(name + " сидит");
     }
 
