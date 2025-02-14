@@ -15,7 +15,7 @@ public class GuessNumber {
         return secretNumber;
     }
 
-    public boolean check(int guess, Player currentPlayer) {
+    public boolean checkGuess(int guess, Player currentPlayer) {
         if (guess < 1 || guess > 100) {
             System.out.println("Ошибка: введите число от 1 до 100");
             return false;
