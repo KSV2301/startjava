@@ -1,14 +1,12 @@
 public class MethodsTest {
     public static void main(String[] args) {
-        System.out.println("Статический метод: ");
-        
-        StaticMethod.staticMethod();
+        MethodsTest test = new MethodsTest();
+        test.testNonBooleanMethods();
+        test.testBooleanMethods();
+    }
 
-        System.out.println("\n----------------------------------\n");
-        System.out.println("Не boolean-методы: ");
-
+    private void testNonBooleanMethods() {
         NonBooleanMethods nbm = new NonBooleanMethods();
-
         nbm.findLongestWord();
         nbm.selectMenuItem();
         nbm.calculateAverageGrade();
@@ -16,28 +14,26 @@ public class MethodsTest {
         nbm.showErrorMessage();
         nbm.syncWithCloud();
         nbm.restoreBackup();
-        nbm.pauseMP3Download();
+        nbm.pauseMp3Download();
         nbm.resetVacuumSettings();
         nbm.writeToFile();
         nbm.convertTempToF();
         nbm.solveMathExpression();
         nbm.findRaceWinner();
         nbm.findBook();
+    }
 
-        System.out.println("\n----------------------------------\n");
-        System.out.println("boolean-методы ");
-
+    private void testBooleanMethods() {
         BooleanMethods bm = new BooleanMethods();
-
-        bm.isProgramRunning();
-        bm.isFileDeleted();
-        bm.hasUniqueDigit();
-        bm.isValidInput();
-        bm.hasEqualDigits();
-        bm.hasMarioLives();
-        bm.isOnlySpaces();
-        bm.isCubeEven();
-        bm.isSsdFileValid();
-        bm.doesFileExist();
+        System.out.println(bm.isProgramRunning());
+        System.out.println(bm.isFileDeleted());
+        System.out.println(bm.hasUniqueDigit());
+        System.out.println(bm.isValidInput());
+        System.out.println(bm.hasEqualDigits());
+        System.out.println(bm.hasMarioLives());
+        System.out.println(bm.isOnlySpaces());
+        System.out.println(bm.isCubeEven());
+        System.out.println(bm.isSsdFileValid());
+        System.out.println(bm.doesFileExist());
     }
 }
