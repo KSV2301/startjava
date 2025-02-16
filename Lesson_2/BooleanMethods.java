@@ -1,65 +1,61 @@
 public class BooleanMethods {
-    private String getCurrentMethodName() {
-        return new Exception().getStackTrace()[1].getMethodName();
-    }
-
     public boolean isProgramRunning() {
-        System.out.print("\n" + getCurrentMethodName() + 
-                "() -> программа выполняется далее или завершается? " + false);
+        System.out.print(MethodUtils.getCurrentMethodName() + 
+                "() -> программа выполняется далее или завершается? ");
         return false;
     }
 
     public boolean isFileDeleted() {
-        System.out.print("\n" + getCurrentMethodName() + 
-                "() -> удалился ли файл на жестком диске или флешке? " + true);
+        System.out.print(MethodUtils.getCurrentMethodName() + 
+                "() -> удалился ли файл на жестком диске или флешке? ");
         return true;
     }
 
     public boolean hasUniqueDigit() {
-        System.out.print("\n" + getCurrentMethodName() + 
-                "() -> последовательность содержит уникальную цифру? " + false);
+        System.out.print(MethodUtils.getCurrentMethodName() + 
+                "() -> последовательность содержит уникальную цифру? ");
         return false;
     }
 
     public boolean isValidInput() {
-        System.out.print("\n" + getCurrentMethodName() + 
-                "() -> пользователь ввел букву или что-то другое? " + true);
+        System.out.print(MethodUtils.getCurrentMethodName() + 
+                "() -> пользователь ввел букву или что-то другое? ");
         return true;
     }
 
     public boolean hasEqualDigits() {
-        System.out.print("\n" + getCurrentMethodName() + 
-                "() -> в проверяемых числах, есть равные цифры? " + false);
+        System.out.print(MethodUtils.getCurrentMethodName() + 
+                "() -> в проверяемых числах, есть равные цифры? ");
         return false;
     }
 
     public boolean hasMarioLives() {
-        System.out.print("\n" + getCurrentMethodName() + 
-                "() -> в игре 'Марио' остались попытки? " + true);
+        System.out.print(MethodUtils.getCurrentMethodName() + 
+                "() -> в игре 'Марио' остались попытки? ");
         return true;
     }
 
     public boolean isOnlySpaces() {
-        System.out.print("\n" + getCurrentMethodName() + 
-                "() -> пользователь ввёл пустую строку или из одних пробелов? " + false);
+        System.out.print(MethodUtils.getCurrentMethodName() + 
+                "() -> пользователь ввёл пустую строку или из одних пробелов? ");
         return false;
     }
 
     public boolean isCubeEven() {
-        System.out.print("\n" + getCurrentMethodName() + 
-                "() -> на кубике, который бросил компьютер, выпало четное число? " + true);
+        System.out.print(MethodUtils.getCurrentMethodName() + 
+                "() -> на кубике, который бросил компьютер, выпало четное число? ");
         return true;
     }
 
     public boolean isSsdFileValid() {
-        System.out.print("\n" + getCurrentMethodName() + 
-                "() -> путь до файла, который вы ищите на ssd, действительный? " + false);
+        System.out.print(MethodUtils.getCurrentMethodName() + 
+                "() -> путь до файла, который вы ищите на ssd, действительный? ");
         return false;
     }
 
     public boolean doesFileExist() {
-        System.out.print("\n" + getCurrentMethodName() +
-                "() -> файл по указанному адресу существует? " + true);
+        System.out.print(MethodUtils.getCurrentMethodName() +
+                "() -> файл по указанному адресу существует? ");
         return true;
     }
 }
