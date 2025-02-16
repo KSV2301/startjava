@@ -13,28 +13,36 @@ public class GuessNumber {
         this.scanner = scanner;
     }
 
-    private boolean makeGuess(Player player) {
-        int guess;
-        while (true) {
-            System.out.print(player.getName() + ", введите число: ");
-            if (scanner.hasNextInt()) {
-                guess = scanner.nextInt();
-                if (guess >= 1 && guess <= 100) {
-                    break;
-                } else {
-                    System.out.println("Ошибка: введите число от 1 до 100");
-                }
-            } else {
-                System.out.println("Ошибка: введите число от 1 до 100");
-                scanner.next();
-            }
+    private int inputNumber(Player player) {
+        System.out.print(player.getName() + ", введите число: ");
+        while (!scanner.hasNextInt()) {
+            System.out.println("\nОшибка: введите число\n");
+            scanner.next();
+            System.out.print(player.getName() + ", введите корректное число: ");
         }
+        return scanner.nextInt();
+    }
+
+    private int inputValidNumber(Player player) {
+        int number;
+        do {
+            number = inputNumber(player);
+            if (number < 1 || number > 100) {
+                System.out.println("\nОшибка: введите число от 1 до 100\n");
+            }
+        } while (number < 1 || number > 100);
+        return number;
+    }
+
+    private boolean makeGuess(Player player) {
+        int guess = inputValidNumber(player);
+
         if (guess > secretNumber) {
-            System.out.println("Загаданное число меньше");
+            System.out.println("\nЗагаданное число меньше\n");
         } else if (guess < secretNumber) {
-            System.out.println("Загаданное число больше");
+            System.out.println("\nЗагаданное число больше\n");
         } else {
-            System.out.println(player.getName() + " угадал число!");
+            System.out.println("\nПоздравляем, " + player.getName() + " угадал число!");
             return true;
         }
         return false;
@@ -42,13 +50,10 @@ public class GuessNumber {
 
     public void start() {
         secretNumber = new Random().nextInt(100) + 1;
-        System.out.println("\nИгра началась!");
+        System.out.println("\nИгра началась!\n");
 
         while (true) {
-            if (makeGuess(player1)) {
-                break;
-            }
-            if (makeGuess(player2)) {
+            if (makeGuess(player1) || makeGuess(player2)) {
                 break;
             }
         }
