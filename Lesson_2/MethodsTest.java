@@ -28,12 +28,12 @@ public class MethodsTest {
         System.out.println(bm.isProgramRunning());
         System.out.println(bm.isFileDeleted());
         System.out.println(bm.hasUniqueDigit());
-        System.out.println(bm.isValidInput());
+        System.out.println(bm.isLetter());
         System.out.println(bm.hasEqualDigits());
-        System.out.println(bm.hasMarioLives());
-        System.out.println(bm.isOnlySpaces());
+        System.out.println(bm.hasLives());
+        System.out.println(bm.isBlank());
         System.out.println(bm.isCubeEven());
-        System.out.println(bm.isSsdFileValid());
-        System.out.println(bm.doesFileExist());
+        System.out.println(bm.isFileValid());
+        System.out.println(bm.isExist());
     }
 }
