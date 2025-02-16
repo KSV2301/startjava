@@ -1,3 +1,5 @@
+
+
 public class Jaeger {
     private String modelName;
     private String origin;
@@ -55,11 +57,8 @@ public class Jaeger {
         this.armor = armor;
     }
 
-    public void desplayInfo() {
-        System.out.println("\nМодель: " + modelName);
-        System.out.println("Происхождение: " + origin);
-        System.out.println("Скорость: " + speed);
-        System.out.println("Сила: " + strength);
-        System.out.println("Броня: " + armor);
+    public String toString() {
+        return "\nМодель: " + modelName + "\nПроисхождение: " + origin + "\nСкорость: " + speed + 
+            "\nСила: " + strength + "\nБроня: " + armor;
     }
 }
