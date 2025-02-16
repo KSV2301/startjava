@@ -1,5 +1,5 @@
 public class MethodUtils {
-    public static String getCurrentMethodName() {
+    public static String getName() {
         return Thread.currentThread().getStackTrace()[2].getMethodName();
     }
 }
