@@ -10,42 +10,23 @@ public class GuessNumberTest {
         System.out.print("Введите имя второго игрока: ");
         Player player2 = new Player(scanner.nextLine());
 
-        while (true) {
-            GuessNumber game = new GuessNumber(player1, player2);
-            boolean guessed = false;
-            Player currentPlayer = player1;
+        String choice;
 
-            System.out.println("\nИгра началась!");
-
-            while (!guessed) {
-                System.out.print(currentPlayer.getName() + " вводит число: ");
-                int playerGuess = scanner.nextInt();
-
-                if (game.check(playerGuess, currentPlayer)) {
-                    guessed = true;
-                } else {
-                    if (currentPlayer == player1) {
-                        currentPlayer = player2;
-                    } else {
-                        currentPlayer = player1;
-                    }
-                }
-            }
+        do {
+            GuessNumber game = new GuessNumber(player1, player2, scanner);
+            game.start();
 
             while (true) {
                 System.out.print("\nХотите сыграть еще раз? [yes/no]: ");
-                String choice = scanner.next();
+                choice = scanner.next();
 
-                if (choice.equalsIgnoreCase("yes")) {
-                    System.out.println("\n----------------------------------");
+                if (choice.equalsIgnoreCase("yes") || choice.equalsIgnoreCase("no")) {
+                    System.out.println("\n----------------------------------\n");
                     break;
-                } else if (choice.equalsIgnoreCase("no")) {
-                    System.out.println("\nПрограмма завершена!");
-                    return;
                 } else {
                     System.out.println("\nОшибка: введите 'yes' или 'no'\n");
                 }
             }
-        }
+        } while (choice.equalsIgnoreCase("yes"));
     }
 }
