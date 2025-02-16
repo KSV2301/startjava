@@ -1,5 +1,3 @@
-
-
 public class Jaeger {
     private String modelName;
     private String origin;
