@@ -1,9 +1,5 @@
-public class StaticMethod {
-    private static String getCurrentMethodName() {
-        return new Exception().getStackTrace()[1].getMethodName();
-    }
-
-    public static void staticMethod() {
-        System.out.println("\n" + getCurrentMethodName() + "() -> выполнение статического метода");
+public class MethodUtils {
+    public static String getCurrentMethodName() {
+        return Thread.currentThread().getStackTrace()[2].getMethodName();
     }
 }
