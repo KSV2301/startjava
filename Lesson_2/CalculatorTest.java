@@ -5,7 +5,9 @@ public class CalculatorTest {
         Calculator calculator = new Calculator();
         Scanner scanner = new Scanner(System.in);
         
-        while (true) {
+        String choice;
+
+        do {
             System.out.print("Введите первое число: ");
             calculator.setNumber1(scanner.nextInt());
 
@@ -22,22 +24,20 @@ public class CalculatorTest {
             System.out.print("Введите второе число: ");
             calculator.setNumber2(scanner.nextInt());
 
-            System.out.println("\nРезультат: " + calculator.getResult());
+            System.out.println("\nРезультат: " + calculator.calculate());
 
             while (true) {
                 System.out.print("\nХотите продолжить вычисления? [yes/no]: ");
-                String choice = scanner.next();
+                choice = scanner.next();
 
-                if (choice.equalsIgnoreCase("yes")) {
+                if (choice.equalsIgnoreCase("yes") || choice.equalsIgnoreCase("no")) {
                     System.out.println("\n----------------------------------\n");
                     break;
-                } else if (choice.equalsIgnoreCase("no")) {
-                    System.out.println("\nПрограмма завершена!");
-                    return;
                 } else {
                     System.out.println("\nОшибка: введите 'yes' или 'no'\n");
                 }
             }
-        }
+        } while (choice.equalsIgnoreCase("yes"));
+        System.out.println("Программа завершена!");
     }
 }
