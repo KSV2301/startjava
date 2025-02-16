@@ -45,14 +45,11 @@ public class Calculator {
 
         switch (operation) {
             case '+':
-                result = number1 + number2;
-                break;
+                return number1 + number2;
             case '-':
-                result = number1 - number2;
-                break;
+                return number1 - number2;
             case '*':
-                result = number1 * number2;
-                break;
+                return number1 * number2;
             case '/':
                 if (number2 == 0) {
                     System.out.println("\nОшибка: деление на ноль запрещено");
@@ -61,14 +58,8 @@ public class Calculator {
                 result = (double) number1 / number2;
                 break;
             case '^':
-                result = 1;
-                for (int i = 0; i < Math.abs(number2); i++) {
-                    result *= number1;
-                }
-                if (number2 < 0) {
-                    result = 1.0 / result;
-                }
-                break;
+                result = Math.pow(number1, number2);
+                return number2 < 0 ? 1.0 / result : result;
             case '%':
                 if (number2 == 0) {
                     System.out.println("\nОшибка: деление на ноль запрещено");
