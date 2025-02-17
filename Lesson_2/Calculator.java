@@ -18,20 +18,10 @@ public class Calculator {
     public void setOperation(char operation) {
         switch (operation) {
             case '+':
-                this.operation = operation;
-                break;
             case '-':
-                this.operation = operation;
-                break;
             case '*':
-                this.operation = operation;
-                break;
             case '/':
-                this.operation = operation;
-                break;
             case '^':
-                this.operation = operation;
-                break;
             case '%':
                 this.operation = operation;
                 break;
@@ -51,21 +41,15 @@ public class Calculator {
             case '*':
                 return number1 * number2;
             case '/':
-                if (number2 == 0) {
-                    System.out.println("\nОшибка: деление на ноль запрещено");
-                    return 0.0;
-                }
-                result = (double) number1 / number2;
-                break;
-            case '^':
-                result = Math.pow(number1, number2);
-                return number2 < 0 ? 1.0 / result : result;
             case '%':
                 if (number2 == 0) {
                     System.out.println("\nОшибка: деление на ноль запрещено");
                     return 0.0;
                 }
-                result = number1 % number2;
+                return (operation == '/') ? (double) number1 / number2 : number1 % number2;
+            case '^':
+                result = Math.pow(number1, number2);
+                return number2 < 0 ? 1.0 / result : result;
         }
         return result;
     }
