@@ -5,7 +5,6 @@ public class CalculatorTest {
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
         Scanner scanner = new Scanner(System.in);
-        
         String choice;
 
         do {
