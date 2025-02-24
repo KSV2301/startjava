@@ -24,26 +24,6 @@ public class GuessNumber {
         }
     }
 
-    private int inputNumber(Player player) {
-        while (true) {
-            int number = inputRawNumber(player);
-            if (number >= 1 || number <= 100) {
-                return number;
-            }
-            System.out.println("\nОшибка: введите число от 1 до 100\n");
-        }
-    }
-
-    private int inputRawNumber(Player player) {
-        System.out.print(player.getName() + ", введите число: ");
-        while (!scanner.hasNextInt()) {
-            System.out.println("\nОшибка: введите число\n");
-            scanner.next();
-            System.out.print(player.getName() + ", введите корректное число: ");
-        }
-        return scanner.nextInt();
-    }
-
     private boolean makeGuess(Player player) {
         int number = inputNumber(player);
 
@@ -55,5 +35,23 @@ public class GuessNumber {
         System.out.println((number > secretNumber) ? "\nЗагаданное число меньше\n" : 
                 "\nЗагаданное число больше\n");
         return false;
+    }
+
+    private int inputNumber(Player player) {
+        System.out.print(player.getName() + ", введите число: ");
+        while (true) {
+            while (!scanner.hasNextInt()) {
+                System.out.println("\nОшибка: введите число\n");
+                scanner.next();
+                System.out.print(player.getName() + ", введите корректное число: ");
+            }
+            
+            int number = scanner.nextInt();
+
+            if (number >= 1 || number <= 100) {
+                return number;
+            }
+            System.out.println("\nОшибка: введите число от 1 до 100\n");
+        }
     }
 }
