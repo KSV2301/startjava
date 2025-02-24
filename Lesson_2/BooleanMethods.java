@@ -47,7 +47,7 @@ public class BooleanMethods {
         return true;
     }
 
-    public boolean isFileValid() {
+    public boolean isValidFile() {
         System.out.print(MethodUtils.getName() + 
                 "() -> путь до файла, который вы ищите на ssd, действительный? ");
         return false;
