@@ -11,10 +11,6 @@ public class Calculator {
         this.number2 = number2;
     }
 
-    public char getOperation() {
-        return operation;
-    }
-
     public void setOperation(char operation) {
         switch (operation) {
             case '+':
@@ -30,9 +26,11 @@ public class Calculator {
         }
     }
 
-    public double calculate() {
-        double result = 0.0;
+    public char getOperation() {
+        return operation;
+    }
 
+    public double calculate() {
         switch (operation) {
             case '+':
                 return number1 + number2;
@@ -41,16 +39,28 @@ public class Calculator {
             case '*':
                 return number1 * number2;
             case '/':
+                return divide();
             case '%':
-                if (number2 == 0) {
-                    System.out.println("\nОшибка: деление на ноль запрещено");
-                    return 0.0;
-                }
-                return (operation == '/') ? (double) number1 / number2 : number1 % number2;
+                return modulo();
             case '^':
-                result = Math.pow(number1, number2);
-                return number2 < 0 ? 1.0 / result : result;
+                return Math.pow(number1, number2);
         }
-        return result;
+        return 0.0;
+    }
+
+    public double divide() {
+        if (number2 == 0) {
+            System.out.println("\nОшибка: деление на ноль запрещено");
+            return 0.0;
+        }
+        return (double) number1 / number2;
+    }
+
+    public double modulo() {
+        if (number2 == 0) {
+            System.out.println("\nОшибка: деление на ноль запрещено");
+            return 0.0;
+        }
+        return number1 % number2;
     }
 }
