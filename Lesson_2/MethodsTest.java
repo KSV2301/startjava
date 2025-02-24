@@ -14,13 +14,13 @@ public class MethodsTest {
         nbm.showErrorMessage();
         nbm.syncWithCloud();
         nbm.restoreBackup();
-        nbm.pauseMp3Download();
+        nbm.pauseDownload();
         nbm.resetVacuumSettings();
         nbm.writeToFile();
-        nbm.convertTempToF();
+        nbm.toFahrenheit();
         nbm.solveMathExpression();
         nbm.findRaceWinner();
-        nbm.findBook();
+        nbm.findBookByAuthor();
     }
 
     private void testBooleanMethods() {
@@ -33,7 +33,7 @@ public class MethodsTest {
         System.out.println(bm.hasLives());
         System.out.println(bm.isBlank());
         System.out.println(bm.isCubeEven());
-        System.out.println(bm.isFileValid());
+        System.out.println(bm.isValidFile());
         System.out.println(bm.isExist());
     }
 }
