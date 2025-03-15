@@ -5,9 +5,15 @@ import java.util.Scanner;
 
 // Игра Камень-Ножницы-Бумага
 public class RpsGameFormatting {
+    
+    private static final String ROCK = "R";
+    private static final String SCISSORS = "S";
+    private static final String PAPER = "P";
+
     public static void main(String[] args) throws InterruptedException {
         Random r = new Random();
         Scanner console = new Scanner(System.in);
+        
         String name1 = inputName(console);
         String name2 = inputName(console);
 
@@ -25,10 +31,6 @@ public class RpsGameFormatting {
         console.close();
     }
 
-    private static final String ROCK = "R";
-    private static final String SCISSORS = "S";
-    private static final String PAPER = "P";
-
     private static String inputName(Scanner console) {
         System.out.print("Введите имя игрока: ");
         return console.nextLine();
@@ -40,16 +42,10 @@ public class RpsGameFormatting {
     }
 
     private static String determineSign(int position) {
-        if (position > 66) {
-            return ROCK;
-        } else if (position > 33) {
-            return SCISSORS;
-        } else {
-            return PAPER;
-        }
+        return (position > 66) ? ROCK : (position > 33) ? SCISSORS : PAPER;
     }
 
-    private static void showSigns (String sign) throws InterruptedException {
+    private static void showSigns(String sign) throws InterruptedException {
         for (int i = 0; i < 5; i++) {
             System.out.print(ROCK + "\r");
             Thread.sleep(100);
