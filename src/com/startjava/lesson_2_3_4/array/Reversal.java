@@ -4,27 +4,31 @@ import java.util.Arrays;
 
 public class Reversal {
     public static void main(String[] args) {
-        int[] arr = {};
-        reverse(arr);
-        printArray(arr);
-
+        int[] arr = new int[0];
         int[] arr1 = null;
-        reverse(arr1);
-        printArray(arr1);
-
         int[] arr2 = {6, 8, 9, 1};
-        reverse(arr2);
-        printArray(arr2);
-
         int[] arr3 = {13, 8, 5, 3, 2, 1, 1};
+
+
+        printArray("   До реверса", arr);
+        reverse(arr);
+        printArray("После реверса", arr);
+
+        printArray("   До реверса", arr1);
+        reverse(arr1);
+        printArray("После реверса", arr1);
+
+        printArray("   До реверса", arr2);
+        reverse(arr2);
+        printArray("После реверса", arr2);
+
+        printArray("   До реверса", arr3);
         reverse(arr3);
-        printArray(arr3);
+        printArray("После реверса", arr3);
     }
 
     private static void reverse(int[] numbers) {
-        if (numbers == null) {
-            return;
-        }
+        if (numbers == null || numbers.length == 0) return;
 
         int length = numbers.length;
         for (int i = 0; i < length / 2; i++) {
@@ -34,19 +38,14 @@ public class Reversal {
         }
     }
 
-    private static void printArray(int[] numbers) {
+    private static void printArray(String message, int[] numbers) {
+        System.out.printf("%-15s", message + ":");
+
         if (numbers == null) {
-            System.out.println("До реверса: null");
-            System.out.println("После реверса: null");
-            System.out.println();
+            System.out.println("null");
             return;
         }
 
-        int[] copy = numbers.clone();
-        reverse(copy);
-
-        System.out.println("До реверса: " + Arrays.toString(copy));
-        System.out.println("После реверса: " + Arrays.toString(numbers));
-        System.out.println();
+        System.out.println(Arrays.toString(numbers));
     }
 }
