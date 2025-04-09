@@ -4,26 +4,25 @@ import java.util.Arrays;
 
 public class Reversal {
     public static void main(String[] args) {
-        reverseAndPrint(new int[0]);
-        reverseAndPrint(null);
-        reverseAndPrint(new int[] {6, 8, 9, 1});
-        reverseAndPrint(new int[] {13, 8, 5, 3, 2, 1, 1});
-    }
+        int[] arr = {};
+        reverse(arr);
+        printArray(arr);
 
-    private static void reverseAndPrint(int[] numbers) {
-        System.out.println("До реверса: " + Arrays.toString(numbers));
+        int[] arr1 = null;
+        reverse(arr1);
+        printArray(arr1);
 
-        if (numbers != null) {
-            reverse(numbers);
-        }
+        int[] arr2 = {6, 8, 9, 1};
+        reverse(arr2);
+        printArray(arr2);
 
-        System.out.println("После реверса: " + Arrays.toString(numbers));
-        System.out.println();
+        int[] arr3 = {13, 8, 5, 3, 2, 1, 1};
+        reverse(arr3);
+        printArray(arr3);
     }
 
     private static void reverse(int[] numbers) {
         if (numbers == null) {
-            System.out.println("null");
             return;
         }
 
@@ -33,5 +32,21 @@ public class Reversal {
             numbers[i] = numbers[--length];
             numbers[length] = temp;
         }
+    }
+
+    private static void printArray(int[] numbers) {
+        if (numbers == null) {
+            System.out.println("До реверса: null");
+            System.out.println("После реверса: null");
+            System.out.println();
+            return;
+        }
+
+        int[] copy = numbers.clone();
+        reverse(copy);
+
+        System.out.println("До реверса: " + Arrays.toString(copy));
+        System.out.println("После реверса: " + Arrays.toString(numbers));
+        System.out.println();
     }
 }
