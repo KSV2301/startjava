@@ -8,10 +8,10 @@ public class FactorialCalculator {
         calculate(-22, -0);
     }
 
-    public static void calculate(@Nullable int... values) {
+    public static void calculate(int... values) {
         int length = values.length;
 
-        if (Object.isNull(values) || length == 0) {
+        if (values == null || length == 0) {
             System.out.println("Массив нулевой длины\n");
             return;
         }
