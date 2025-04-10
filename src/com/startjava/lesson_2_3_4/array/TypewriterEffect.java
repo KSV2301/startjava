@@ -2,23 +2,33 @@ package com.startjava.lesson_2_3_4.array;
 
 public class TypewriterEffect {
     public static void main(String[] args) {
-        printWithTypewriter("Java - это C++, из которого убрали все пистолеты, ножи и дубинки.\n" +
-                "- James Gosling");
-        printWithTypewriter("Чтобы написать чистый код, мы сначала пишем грязный код " +
-                ", затем рефакторим его.\n" + "- Robert Martin");
-        printWithTypewriter(null);
-        printWithTypewriter("");
+        String text = "Java - это C++, из которого убрали все пистолеты, ножи и дубинки.\n- James Gosling";
+        String prepared = prepare(text);
+        printSlow(prepared);
+
+        String text1 = "Чтобы написать чистый код, мы сначала пишем грязный код, затем рефакторим его.\n" +
+                    "- Robert Martin";
+        String prepared1 = prepare(text1);
+        printSlow(prepared1);
+
+        String text2 = null;
+        String prepared2 = prepare(text2);
+        printSlow(prepared2);
+
+        String text3 = "";
+        String prepared3 = prepare(text3);
+        printSlow(prepared3);
     }
 
-    public static void printWithTypewriter(String text) {
+    private static String prepare(String text) {
         if (text == null) {
             System.out.println("Ошибка: null - строка\n");
-            return;
+            return null;
         }
 
         if (text.isBlank()) {
             System.out.println("Ошибка: пустая строка\n");
-            return;
+            return null;
         }
 
         String[] cleanedWords = text.replaceAll("[^a-zA-Zа-яА-Я0-9\\s]", "").split("\\s+");
@@ -48,13 +58,12 @@ public class TypewriterEffect {
             if (from != -1 && to != -1) break;
         }
 
-        if (from == -1 || to == -1) {
-            System.out.println("Ошибка: не найдены границы для выделения слов\n");
-            return;
-        }
+        if (from == -1 || to == -1) return "Ошибка: не найдены границы для выделения слов\n";
 
         int start = Math.min(from, to);
         int end = Math.max(from, to);
+
+        StringBuilder prepared = new StringBuilder();
 
         for (int i = 0; i < length; i++) {
             String word;
@@ -64,15 +73,15 @@ public class TypewriterEffect {
             } else {
                 word = originalWords[i];
             }
-
-            printSlow(word);
-            System.out.print(" ");
+            prepared.append(word).append(" ");
         }
 
-        System.out.println("\n");
+        return prepared.toString().strip();
     }
 
-    public static void printSlow(String word) {
+    private static void printSlow(String word) {
+        if (word == null) return;
+
         for (char chars : word.toCharArray()) {
             System.out.print(chars);
             try {
@@ -83,5 +92,6 @@ public class TypewriterEffect {
                 return;
             }
         }
+        System.out.println("\n");
     }
 }
