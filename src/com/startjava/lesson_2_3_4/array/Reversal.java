@@ -5,23 +5,21 @@ import java.util.Arrays;
 public class Reversal {
     public static void main(String[] args) {
         int[] arr = new int[0];
-        int[] arr1 = null;
-        int[] arr2 = {6, 8, 9, 1};
-        int[] arr3 = {13, 8, 5, 3, 2, 1, 1};
-
-
         printArray("   До реверса", arr);
         reverse(arr);
         printArray("После реверса", arr);
 
+        int[] arr1 = null;
         printArray("   До реверса", arr1);
         reverse(arr1);
         printArray("После реверса", arr1);
 
+        int[] arr2 = {6, 8, 9, 1};
         printArray("   До реверса", arr2);
         reverse(arr2);
         printArray("После реверса", arr2);
 
+        int[] arr3 = {13, 8, 5, 3, 2, 1, 1};
         printArray("   До реверса", arr3);
         reverse(arr3);
         printArray("После реверса", arr3);
