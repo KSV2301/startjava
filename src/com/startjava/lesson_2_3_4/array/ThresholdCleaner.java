@@ -6,68 +6,68 @@ public class ThresholdCleaner {
     public static void main(String[] args) {
         double[] values = generateValues(15);
 
-        cleanAboveThreshold(values, -1);
-        cleanAboveThreshold(values, 15);
-        cleanAboveThreshold(values, 0);
-        cleanAboveThreshold(values, 14);
+        double[] cleaned1 = cleanAboveThreshold(values.clone(), -1);
+        printCleaning(values, cleaned1, -1);
+
+        double[] cleaned2 = cleanAboveThreshold(values.clone(), 15);
+        printCleaning(values, cleaned2, 15);
+
+        double[] cleaned3 = cleanAboveThreshold(values.clone(), 0);
+        printCleaning(values, cleaned3, 0);
+
+        double[] cleaned4 = cleanAboveThreshold(values.clone(), 14);
+        printCleaning(values, cleaned4, 14);
     }
 
-    public static void cleanAboveThreshold(double[] sourceValues, int targetIndex) {
-        int length = sourceValues.length;
-        System.out.println("Обработка индекса: " + targetIndex);
+    private static double[] cleanAboveThreshold(double[] values, int index) {
+        if (index < 0 || index >= values.length) {
+            return null;
+        }
 
-        if (targetIndex < 0 || targetIndex >= sourceValues.length) {
-            System.out.println("Ошибка: некорректный индекс " + targetIndex);
-            System.out.println();
+        double threshold = values[index];
+        for (int i = 0; i < values.length; i++) {
+            if (values[i] > threshold) {
+                values[i] = 0.0;
+            }
+        }
+        return values;
+    }
+
+    private static void printCleaning(double[] original, double[] cleaned, int index) {
+        System.out.println("Обработка индекса: " + index);
+
+        if (cleaned == null) {
+            System.out.println("Ошибка: некорректный индекс " + index + "\n-------------------------");
             return;
         }
 
-        double[] copy = sourceValues.clone();
-        double threshold = copy[targetIndex];
-        int clearedCount = 0;
-
-        double[] original = copy.clone();
-
-        for (int i = 0; i < length; i++) {
-            if (copy[i] > threshold) {
-                copy[i] = 0.0;
-                clearedCount++;
-            }
-        }
-
-        System.out.print("Исходный массив: ");
+        System.out.println("\nИсходный массив: ");
         printValues(original);
 
-        System.out.printf("Значение по индексу %d: %.3f%n", targetIndex, threshold);
+        System.out.printf("\nЗначение по индексу %d: %.3f%n", index, original[index]);
 
-        System.out.print("Измененный массив: ");
-        printValues(copy);
+        System.out.println("\nИзмененный массив: ");
+        printValues(cleaned);
 
-        System.out.println("Обнулено ячеек: " + clearedCount);
+        int zeroCount = 0;
+        for (double value : cleaned) {
+            if (value == 0.0) zeroCount++;
+        }
+
+        System.out.println("\nОбнулено ячеек: " + zeroCount + "\n-------------------------");
+    }
+
+    private static void printValues(double[] values) {
+        for (int i = 0; i < values.length; i++) {
+            System.out.printf("%.3f ", values[i]);
+            if (i == 7) System.out.println();
+        }
         System.out.println();
     }
 
-    public static void printValues(double[] values) {
-        int length = values.length;
-        int mid = length / 2;
-
-        for (int i = 0; i < mid; i++) {
-            System.out.printf("%.3f ", values[i]);
-        }
-
-        System.out.print("| ");
-
-        for (int i = 8; i < length; i++) {
-            System.out.printf("%.3f ", values[i]);
-        }
-
-        System.out.println();
-    }
-
-    public static double[] generateValues(int size) {
+    private static double[] generateValues(int size) {
         double[] values = new double[size];
         Random random = new Random();
-
         for (int i = 0; i < size; i++) {
             values[i] = random.nextDouble();
         }
